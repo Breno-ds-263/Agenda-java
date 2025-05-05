@@ -57,6 +57,23 @@ public class ContatoDAO {
 		return contatos;
 		
 	}
+	
+	public void excluir(String nome) {
+		String sql = "DELETE FROM contato WHERE nome = ?;";
+		
+		try (Connection conn = conexaoDB.getConnection();
+			PreparedStatement stmt = conn.prepareStatement(sql)){
+			
+			stmt.setString(1, nome);
+			
+			stmt.executeUpdate();
+			
+			System.out.println("Contato apagado com sucesso!");
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
 }
 

@@ -43,5 +43,9 @@ public class Agenda {
 		return contatoDAO.listar();
 	}
 	
+	public void excluirContato(String nome) {
+		contatoDAO.excluir(nome);	
+	}
+	
 
 }
